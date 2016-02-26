@@ -47,7 +47,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         begin_time = time.time()
         print begin_time
-        driver = SeleniumWebDriver(kind='chrome').driver
+        driver = SeleniumWebDriver(kind='firefox').driver
         driver.get(USA_TRIPADVISOR_HOTELS)
         next_page = self.get_next_page(driver)
         # pageCount = 431 #maybe change by dynamic getting thin number

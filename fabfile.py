@@ -14,7 +14,7 @@ env.hosts = [
 env.key_filename = '/home/andrey/Playtogether.pem'
 
 env.project_name = 'Scrap'
-env.path = '/home/ubuntu/projects/%(project_name)s' % env
+env.path = '/home/ubuntu/projects_2/%(project_name)s' % env
 # env.path = '/home/vagrant/projects/%(project_name)s' % env
 env.env_path = '%(path)s/env' % env
 env.repo_path = '%(path)s/repository' % env
@@ -44,7 +44,7 @@ def deploy():
     install_requirements()
 
     run('source %(env_path)s/bin/activate; %(env_path)s/bin/python %(repo_path)s/manage.py migrate' % env)
-    run('source %(env_path)s/bin/activate; %(env_path)s/bin/python %(repo_path)s/manage.py collectstatic' % env)
+    # run('source %(env_path)s/bin/activate; %(env_path)s/bin/python %(repo_path)s/manage.py collectstatic' % env)
 
 
 def install_requirements():
