@@ -6,20 +6,20 @@ from fabric.operations import sudo
 # env.key_filename = '/home/andrey/Dropbox/playtogether/.vagrant/machines/default/virtualbox/private_key'
 env.user = 'ubuntu'
 env.hosts = [
-    'ec2-54-209-133-98.compute-1.amazonaws.com'
+    'ec2-52-91-11-163.compute-1.amazonaws.com'
 ]
 
 # git@github.com:andreyavramchikov/Scrap.git
 
-env.key_filename = '/home/andrey/Playtogether.pem'
+env.key_filename = '/home/andrey/PaidEc2.pem'
 
-env.project_name = 'Scrap'
+env.project_name = 'scrap'
 env.path = '/home/ubuntu/projects_2/%(project_name)s' % env
 # env.path = '/home/vagrant/projects/%(project_name)s' % env
 env.env_path = '%(path)s/env' % env
 env.repo_path = '%(path)s/repository' % env
 
-# ssh -i ~/Playtogether.pem ubuntu@ec2-54-209-133-98.compute-1.amazonaws.com
+# ssh -i ~/PaidEc2.pem ubuntu@ec2-52-91-11-163.compute-1.amazonaws.com
 
 
 def setup():
@@ -30,14 +30,13 @@ def setup():
     sudo('apt-get -y install python-virtualenv')
     sudo('apt-get -y install libmysqlclient-dev')
     sudo('pip install virtualenvwrapper')  # must update .bashrc still manually
-    run('source ~/.bashrc')
-    run('mkvirtualenv scrapping --no-site-packages')
-    run('source ~/.virtualenvs/playtogether/bin/activate')
-
+    # run('source ~/.bashrc')
+    # run('mkvirtualenv scrapping --no-site-packages')
+    # run('source ~/.virtualenvs/playtogether/bin/activate')
 
 def deploy():
-    # sudo('rm -rf projects')  # MUST REMOVE IT
-    sudo('apt-get install git')
+    sudo('rm -rf projects_2')  # MUST REMOVE IT
+    sudo('apt-get -y install git')
     setup_directories()
     setup_virtualenv()
     clone_repo()
