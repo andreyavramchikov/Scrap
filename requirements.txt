@@ -1,6 +1,7 @@
 Django==1.9.2
 ecdsa==0.13
 Fabric==1.10.2
+MySQL-python==1.2.5
 paramiko==1.16.0
 pycrypto==2.6.1
 selenium==2.52.0
